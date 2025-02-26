@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+    {% for staff in object_list %}
+        <a class="text-dark" href="{{staff.get_absolute_url}}">{{staff}}</a>
+    {% empty %}
+    <p>No staff yet.</p>
+    {% endfor %}
+        
+{% endblock content %}
+    

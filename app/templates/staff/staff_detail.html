@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+<div class="col-lg-5 mx-auto shadow p-5 rounded-4">
+    <h2>{{object}}</h2>
+    <p class="text-muted small">{{object.created_at|naturaltime}}</p>
+    <hr>
+    <p>{{object.last_name}}, {{object.first_name}}
+        {{object.middle_initial|default:''}}</p>
+    <p>{{object.department}}</p>
+    <p>{{object.status}}</p>
+    <p>{{object.role}}</p>
+    <p>{{object.email}}</p>
+    <p>{{object.same_role_as|default:""}}</p>
+    <hr>
+    <div class="text-end">
+        <a class="text-dark" href="{% url 'staff-update' object.pk %}">Edit</a>
+    </div>
+</div>
+{% endblock content %}
